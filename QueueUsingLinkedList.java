@@ -1,50 +1,44 @@
-package com.company.queues;
-class Qnode{
-    int key;
-    Qnode next;
-    public Qnode(int key){
-        this.key = key;
-        this.next = null;
+package StackandQueues;
+class QNode {
+    QNode next;
+    int data;
+    QNode(int x) {
+        next = null;
+        data = x;
     }
 }
-class Queues{
-    Qnode front,rear;
-    public Queues(){
-        front = rear = null;
-    }
-    void enQueue(int key){
-        Qnode temp  = new Qnode(key);
-        if(rear==null){
-            rear = front = temp;
-            return;
+public class QueueUsingLinkedList {
+    QNode front = null;
+    QNode rear = null;
+
+    public void push(int x) {
+        QNode newNode = new QNode(x);
+        if (rear == null) {
+            front = newNode;
+            rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
         }
-        rear.next = temp;
-        rear = temp;
     }
-    void deQueue(){
-        if(front == null){
-            return;
+    public int pop() {
+        if (front == null) {
+            return -1;
         }
-        Qnode temp = front;
+        QNode temp = front;
         front = front.next;
 
-        if (front == null)
+        if (front == null) {
             rear = null;
+        }
+        return temp.data;
     }
-}
-
-public class QueueUsingLinkedList {
     public static void main(String[] args) {
-        Queues q = new Queues();
-        q.enQueue(10);
-        q.enQueue(20);
-        q.deQueue();
-        q.deQueue();
-        q.enQueue(30);
-        q.enQueue(40);
-        q.enQueue(50);
-        q.deQueue();
-        System.out.println("Queue Front : " + q.front.key);
-        System.out.println("Queue Rear : " + q.rear.key);
+        QueueUsingLinkedList q = new QueueUsingLinkedList();
+        q.push(5);
+        q.push(4);
+        q.push(6);
+        q.push(1);
+        System.out.println(q.pop());
     }
 }
