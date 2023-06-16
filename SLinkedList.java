@@ -14,6 +14,7 @@ class LinkedList_{
         newNode.next = head;
         head = newNode;
     }
+    
     void insertAfter(Node prev,int d){
         Node newNode = new Node(d);
         if(prev==null){
