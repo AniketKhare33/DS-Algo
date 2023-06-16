@@ -7,6 +7,7 @@ class QNode {
         data = x;
     }
 }
+
 public class QueueUsingLinkedList {
     QNode front = null;
     QNode rear = null;
