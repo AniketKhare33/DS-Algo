@@ -24,6 +24,7 @@ public class Binarysearch {
         // not present
         return -1;
     }
+    
     public static void main(String[] args) {
         int arr[] = { 2, 3, 4, 10, 40 };
         int n = arr.length;
