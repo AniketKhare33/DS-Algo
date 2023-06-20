@@ -1,6 +1,7 @@
 public class Stockbuyandsell {
     static int maxProfit(int[] arr) {
         int maxPro = 0;
+        
         int minPrice = Integer.MAX_VALUE;
         for (int i = 0; i < arr.length; i++) {
           minPrice = Math.min(minPrice, arr[i]);
